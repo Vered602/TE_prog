@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MyTEditor</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+ 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="iFrameOn();" >
+	<header>
+	<div class="header_logo"><p>MyTEditor</p></div>
+	<nav>
+		<div class="topnav" id="my_topnav">
+			
+		<a href="#">Головна</a>
+		<a href="#">Про проект</a>
+		<a href="#">Основна інформація</a>
+		<a href="#">Історія</a>
+		<a href="#">Контакти</a>
+			     			
+    		
+			
+			<a href="#" id="menu" class="icon">&#9776;</a>
+		</div>
+	</nav>
+	</header>	
+	<main>
+			<div class="main_TE">
+				<h1>Welcome on my website <span class="myEditor"><img src="image/" alt=""></span> </h1>
+				<p>You cen work with text online</p>
+				<p>Також ви можете дізнатись багато нового в розділі Про проект</p>
+			</div>
+		<div>
+			<div class="toolbar">
+    	<button class="tool-items fa fa-underline"  onclick="document.execCommand('underline', false, '');" title="underline">
+    	</button>
+   	 	<button class="tool-items fa fa-italic" onclick="document.execCommand('italic', false, '');" title="italic">
+    	</button>
+    	<button class="tool-items fa fa-bold" onclick="document.execCommand('bold', false, '');" title="bold">
+    	</button>
+    	<button class="tool-items fa fa-link" onclick="link()" title="link"></button>
+    	<button class="tool-items fa fa-unlink" onclick="document.execCommand('unlink',false, null)"  title="unlink" ></button>
+    	<button class="tool-items fa fa-scissors" onclick="document.execCommand('cut',false,'')" title="cut"></button>
+    	<input class="tool-items fa fa-file-image-o" type="file" accept="image/*" id="file" style="display: none;" onchange="getImage()" >
+    	<label for="file" class="tool-items fa fa-file-image-o"></label>
+    	<button class="tool-items fa fa-undo" onclick="document.execCommand('undo',false,'')" title="undo"></button>
+    	<button class="tool-items fa fa-repeat" onclick="document.execCommand('redo',false,'')" title="repeat"></button>
+    	<button class="tool-items fa fa-tint" onclick="changeColor()" title="tint"></button>
+    	<button class="tool-items fa fa-strikethrough" onclick="document.execCommand('strikeThrough',false,'')" title="strikeThrough"></button>
+    	<button class="tool-items fa fa-trash" onclick="document.execCommand('delete',false,'')" title="delete"></button>
+    	<button class="tool-items fa fa-removeFormat" onclick="document.execCommand('removeFormat',false,'')" title="removeFormat">REM</button>
+    	<button class="tool-items fa fa-scribd" onclick="document.execCommand('selectAll',false,'')" title="scribd"></button>
+    	<button class="tool-items fa fa-clone" onclick="copy()" title="clone"></button>
+    	<button class="tool-items fa fa-align-center" onclick="document.execCommand('justifyCenter',false,'')" title="ctnter"></button>
+    	<button class="tool-items fa fa-align-left" onclick="document.execCommand('justifyLeft',false,'')" title="left"></button>
+    	<button class="tool-items fa fa-align-right" onclick="document.execCommand('justifyRight',false,'')" title="right"></button>
+    	<button class="tool-items fa fa-copy" onclick="document.execCommand('copy')"  title="copy" ></button>
+    	<button class="tool-items fa fa-paste" onclick="document.execCommand('paste',false, null)"  title="paste" ></button>
+    	<button class="tool-items fa fa-print" onclick="document.execCommand('print',false,null)"  title="print" ></button>
+    	<button class="tool-items fa fa-insertParagraph" onclick="document.execCommand('insertParagraph')"  title="insertParagraph" >P</button>
+
+    	<button class="tool-items fa fa-fontName" onclick="document.execCommand('fontName')"  title="fontName" >event</button>
+    	<button class="tool-items fa fa-subscript" onclick="document.execCommand('subscript',false,null)"  title="subscript" ></button>
+    	<button class="tool-items fa fa-superscript" onclick="document.execCommand('superscript',true,null)"  title="superscript" ></button>
+    	<button class="tool-items fa fa-indent" onclick="document.execCommand('indent',true,null)"  title="indent" ></button>
+
+    	<select class="sel" onchange="exec('forecolor',this.value); this.selectedIndex=0;"><br/>
+  			<option class="heading" selected>- color -</option>
+  			<option value="red">Red</option>
+  			<option value="blue">Blue</option>
+  			<option value="green">Green</option>
+ 			 <option value="black">Black</option>
+		</select>
+
+		<select class="sel2"  onchange="exec2('fontSize',this.value); this.selectedIndex=0;"><br/>
+  			<option class="heading2" selected >- fontSize -</option>
+  			<option value="1">1</option>
+  			<option value="2">2</option>
+  			<option value="3">3</option>
+ 			<option value="4">4</option>
+ 			<option value="5">5</option>
+  			<option value="6">6</option>
+  			<option value="7">7</option>
+ 			<option value="8">8</option>
+		</select>
+		<select class="sel3"  onchange="exec3('fontName',this.value); this.selectedIndex=0;"><br/>
+  			<option class="heading2" selected >- font -</option>
+  			<option value="calibri">calibri</option>
+  			<option value="TIMES NEW ROMAN">TIMES NEW ROMAN</option>
+  			<option value="colonna mt">colonna mt</option>
+ 			<option value="BRUSH SCRIPT MT">BRUSH SCRIPT MT</option>
+ 			<option value="matura mt script capitals">matura mt script capitals</option>
+  			<option value="lucida console">lucida console</option>
+  			<option value="bookman old style">bookman old style</option>
+ 			<option value="segoe script">segoe script</option>
+		</select>
+  			</div>
+  		<div class="center"  >
+   			 <div class="editor" contenteditable  >
+      			<h2>MyTEditor</h2>
+      			<p>Lets start</p>
+				
+    		</div>
+    		
+  		<div class="center">
+    		<button class="sai btn">GetHtml</button>
+    		<button class="getText btn">GetText</button>
+    		<button class="btn
+				print" onclick="printMe()">PrintHtml</button>
+  		</div>
+  		<div class="center">
+    		<section class="getcontent">
+    		</section>
+  		</div>
+		<div class ="about_editor"> 
+			<p> <span>WYSIWYG</span>  від What You See Is What You Get (англ. що бачиш, те й отримуєш).
+			Застосовується до комп'ютерних програм, які надають можливість користувачу бачити щось дуже подібне до кінцевого результату під час створення документів або зображень. Наприклад, користувач може бачити на екрані, як виглядатиме документ, видрукований на папері або відображений у веб-оглядачі.
+			</p>
+			<iframe  width="100%" height="420px" src="https://www.youtube.com/embed/fdqVNKG7iyk" frameborder="0"" allowfullscreen></iframe>
+		</div>
+<!-- 3 BLOCK -->
+  		<div class="main_about">
+  			<div class="wrapp">
+  				<h1>Програми в яких використовуэться  текстовий редактор</h1>
+  				<div class="line"></div>
+  				<p></p>
+			<div class="uzing_cards">
+				<div class="uzing_card">
+					<img class="uzr" src="1.png" alt="Редагувати">
+					<h4>Текстові редактори</h4>
+					<p>Текстовий редактор — комп'ютерна програма-застосунок, призначена для створення й зміни текстових файлів (вставки, видалення та копіювання тексту, заміни змісту, сортування рядків), а також їх перегляду на моніторі, виводу на друк, пошуку фрагментів тексту тощо.</p>
+				</div>
+				<div class="uzing_card">
+					<img class="uzr" src="2.png" alt="Редагувати">
+					<h4>Редактори веб-сторінок</h4>
+					<p>Редактор HTML або HTML-редактор — комп'ютерна програма, яка дозволяє створювати і змінювати HTML-сторінки</p>
+				</div>
+				<div class="uzing_card">
+					<img class="uzr" src="3.png" alt="Редагувати">
+					<h4>CAD-програми</h4>
+					<p>Aвтоматизована система, призначена для автоматизації технологічного процесу проектування виробу, результатом якого є комплект проектно-конструкторської документації, достатньої для виготовлення та подальшої експлуатації об'єкта проектування</p>
+				</div>
+				<div class="uzing_card">
+					<img class="uzr" src="4.png" alt="Редагувати">
+					<h4>Програми для комп'ютерної верстки</h4>
+					<p>Поєднання персонального комп'ютера та спеціального програмного забезпечення для створення макету для друку в типографії або на принтері.</p>
+				</div>
+  			</div>
+  			</div>
+  		</div>
+  			<div class="more_info">
+  				<h1>Різноманітність можливостей</h1>
+  				<p>
+  					<h3>На сьогодні існує безліч всіляких систем створення веб-додатків, які підрозділяють на 4 різні категорії:</h3>
+					<p><span>Tекстові редактори</span> (Emacs, gedit, Notepad, TextEdit, UltraEdit, vi і т.п.);
+					текстові редактори HTML-коду (т.з. «text-based HTML editors»: Alleycode HTML Editor, Aptana, Arachnophilia, BBEdit, Bluefish, Crimson Editor, CoffeeCup HTML Editor, EditPlus, Evrsoft 1st Page, HateML Pro, HotHTML, HTML-Kit, HTMLPad, Macromedia HomeSite, Notepad++, NoteTab, PSPad, Quanta Plus, SCREEM, Siteaid, skEdit, Taco HTML Edit, TextMate, TopStyle, WebTide і т.п.);</p>
+					<p><span>Редактори WYSIWYG</span> («What You See Is What You Get» або «що ви бачите, то ви і отримаєте»-редактори; досить потужні і зручні засоби створення і обробки веб-додатків: 
+					Adobe Contribute "Dreamweaver Lite", Adobe Dreamweaver – раніше називався Macromedia Dreamweaver, Adobe GoLive, Amaya, Blockstar, Bluevoda, HotDog, iWeb, Media Lab SiteGrinder, Microsoft Expression Web, Microsoft SharePoint Designer, Microsoft Visual Studio / ASP.NET Web Matrix, Microsoft Visual Web Developer, NetObjects Fusion, Nvu, Quanta Plus, Sandvox, SeaMonkey Composer, Softpress Freeway, RapidWeaver, WorldWideWeb і т.п.).</p>
+					<p><span>На</span> сьогодні найпопулярнішою системою розробки веб-додатків являеются 
+					<a  <a href="https://uk.wikipedia.org/wiki/Adobe_Dreamweaver" target="blank">Dreamweaver</a> (в пер. «ткач мрії») — HTML-редактор. Розроблений і підтримувався компанією Macromedia у версіях до MX (6 версія, 2005 рік), а нині – Adobe. Багатий інструментарій, відвертість додатку для всіляких настройок, зручний інтерфейс і інші особливості зробили Dreamweaver одним з найпопулярніших HTML-редакторів в світі.</p> 
+				</p>
+  			</div>
+
+  		<section class="contact_form"> 
+  			<h3>За інформацією що до проекту, побажаннями та пропозиціями зв'яжіться з нами через форму внизу</h3>
+
+  			<form id="contact" method="get" action="mail.php">
+					<div class="form-group">
+						<input type="text" class="form-control" id="exampleInputEmail1" name='name' placeholder="Ім'я">
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" id="exampleInputPassword1" name="email" placeholder="Email">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="exampleInputEmail1" name="number" placeholder="Номер телефона">
+					</div>
+					<div class="form-group">
+						<textarea class="form-control" rows="4" name="message" placeholder="Повідомлення"></textarea>
+					</div>
+						<button  type="submit" name="submit" class="btn btn-primary my-btn dark">Відправити</button>
+			</form>
+  		</section>
+	</main>
+	<footer>
+		<div class="social">
+			<a href=""><img src="facebook.png" alt="" class= "animated"></a>
+			<a href=""><img src="instagram.png" alt="" class= "animated"></a>
+			<a href=""><img src="linkedin.png" alt="" class= "animated"></a>
+			<a href=""><img src="skype.png" alt="" class= "animated"></a>
+			<a href=""><img src="twitter.png" alt="" class= "animated"></a>
+		</div>
+		
+		<div>
+			<ul class="contact_info">
+     				<li ><p  ><span>Адрес:   </span>м.Львів Вул.Центральна 19</p></li><br/>
+      				<li ><p  ><span>Телефон: </span>0968375355</p></li><br/>
+      				<li ><p  ><span>Email:   </span><a href="#"> andrii_panchuck@ukr.net </a></p></li>
+      			</ul>	
+		</div>
+		<div class="ex">Дану роботу виконав Панчук А.В. </div>
+	</footer>
+
+	<script src="my_parse_file.php"></script>
+	<script src="script.js" ></script>
+</body>
+</html>
